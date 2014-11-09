@@ -1,0 +1,213 @@
+extends layout
+
+block content
+  <!--[if lt IE 10]><p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="//browsehappy.com/">upgrade your browser</a> to improve your experience.</p>2<![endif]-->
+  #blueimp-gallery.blueimp-gallery.blueimp-gallery-controls
+    .slides
+    h3.title
+    a.prev
+      i.fa.fa-angle-left
+    a.next
+      i.fa.fa-angle-right
+    a.close &times;
+    ol.indicator
+  .container
+    a.pull-left.mobile-logo(href='//egidiopastryshop.com')
+    nav.nav-collapse.cl-effect-4
+      ul
+        li
+          a(href='#history') HISTORY
+        li
+          a(href='#menu') MENU
+        li#li-logo
+          a.logo(href='//egidiopastryshop.com')
+        li
+          a(href='#services') SERVICES
+        li
+          a(href='#contact') CONTACT
+  .flexslider
+    ul.slides
+      li
+        img(src='/images/carousel/4.jpg')
+      li
+        img(src='/images/carousel/1.jpg')
+      li
+        img(src='/images/carousel/2.jpg')
+      li
+        img(src='/images/carousel/6.jpg')
+  section#history
+    .container
+      .section-text
+        h1 OUR STORY
+        h2 Egidio in the Heart of 187<sup>th</sup> Street the Bronx since 1912
+        p
+          | When Don Pasquale Egidio left Mulberry Street in New York in 1912 to settle
+          | in the Belmont section of the Bronx to open Pasticeria Egidio, he certainly
+          | had no idea that what he began would outlast two world wars, the Great Depression,
+          | the Beetles, the Russian Revolution and Ebbet's Field!
+        p
+          | Today, Egidio Pastry Shop, proudly continues to offer over 75 years of uninterrupted
+          | tradition in the making of the finest dulciary products.
+        p
+          | Sweets prepared at Egidio's still shine with a special luster of distinction and
+          | creativity united by one commmon thread: quality! Natural and wholesome ingredients ...
+          | based on the authentic old recipes.
+        p
+          | Our lastest line of Egidio Gourmet Coffee and Egidio Espresso Italiano follow our distinguished tradition.
+        h3 VISIT US TO BECOME A PART OF OUR TRADITION.
+  section#first.picture
+    .absolute-center.is-responsive
+      h1.headline.one
+        | Located in the <strong>HEART</strong> of
+      h2.headline.one 187TH STREET THE BRONX
+  section#menu
+    .container
+      .menu-title
+        .row
+          .col-xs-7
+            h2 Authentic Italian
+            h1 MENU
+      .grid
+        .row
+          mixin gallery(name, number)
+            - for (var x = 1; x < number+1; x++)
+              - x = x < 10 ? '0' + x: x;
+              if +x === 1
+                a.open-gallery(href='/images/galleries/#{name}/egidio-#{name}-#{x}.jpg', data-thumbnail='/images/galleries/#{name}/thumbnails/egidio-#{name}-#{x}.jpg', data-gallery='##{name}')
+              else 
+                a(href='/images/galleries/#{name}/egidio-#{name}-#{x}.jpg', data-thumbnail='/images/galleries/#{name}/thumbnails/egidio-#{name}-#{x}.jpg', data-gallery='##{name}')
+          #item1.menu-item.col-sm-6.col-md-3
+            #links.menu-image
+              +gallery('biscotti', 3)
+            .menu-text
+              h2 Variety of
+              h1 BISCOTTI
+          #item2.menu-item.col-sm-6.col-md-3
+            #links.menu-image
+              +gallery('pastries', 13)
+            .menu-text
+              h2 Mini &amp; Large
+              h1 PASTRIES
+          #item3.menu-item.col-sm-6.col-md-3
+            #links.menu-image
+             +gallery('cookies', 7)
+            .menu-text
+              h2 Fresh Italian
+              h1 COOKIES
+          #item4.menu-item.col-sm-6.col-md-3
+            #links.menu-image
+              +gallery('cakes', 21)
+            .menu-text
+              h2 Specialty
+              h1 CAKES
+        #message
+          h3 FOR DETAILS PLEASE CONTACT US
+  section#second.picture
+    .absolute-center.is-responsive
+      h1.headline.two Fresh Specialty Cakes
+      h2.headline.two FOR ALL YOUR OCCASIONS
+  section#services
+    .container.clearfix
+      .section-text
+        h1 OUR SERVICES
+        h2 CAKES
+        p
+          | Egidio Pastry Shop's services include custom-designed cakes for special celebrations. Customers count
+          | on Egidio's not only for our classic favorites, but for our beautiful custom designed cakses to celebrate
+          | wedddings, birthday parties, retirement parties and many other celebrations.
+        p
+          | If you have an idea for an upcoming occasion, speak with one of our experienced decorators. We will make sure
+          | your cake makes an impression for your next celebration.
+        h2 PASTRIES
+        p
+          | One of the first things you will see when you walk into our store are showcases full of Italian pastries,
+          | reminiscent of the pastries you would find in the different regions of Italy.
+        p
+          | We carry a full line of regular sized, miniature and sugar-free pastries. Our selection includes crispy cannoli
+          | filled with ricotta, handmade sfogliatelle, napoleons, rum baba, pasticiotti, lobster tails, fruit tarts,
+          | cassatini and so much more.
+        h2 CAFE &amp; ESPRESSO
+        p
+          | Come in and enjoy the &quot;Egidio Favorites&quot; along with specialty coffees and espressos. We have a lovely
+          | cafe area where you can appreciate the view of 187<sup>th</sup> Street in the Litte Italy of the Bronx.
+  section#third.picture
+    .absolute-center.is-responsive
+      h1.headline.three
+        | Come visit us at <strong>Egidio Pastry Shop</strong>
+      h2.headline.three WE LOOK FORWARD TO SATISFYING YOUR SWEETH TOOTH
+  section#contact
+    .container
+      .row.contact-info
+        #location.col-sm-6
+          h1 LOCATION
+          p Egidio Pastry Shop
+          p 622 East 187<sup>th</sup> St
+          p Bronx, NY 10458
+          p 718.295.6077
+        #hours.col-sm-6
+          h1 HOURS
+          p Mon - Fri: 7am - 8pm
+          p Sat &amp; Sun: 7am - 8pm
+      a.google_map(href='//maps.google.com/?q=Egidio%20Pastry%20Shop', target='_blank')
+        img.center-block(src='//maps.googleapis.com/maps/api/staticmap?center=40.8550686,-73.8868178&zoom=16&size=640x640&maptype=roadmap&markers=size:mid%7Ccolor:red%7C40.8550686,-73.8868178&sensor=false', alt='Location of Egidio Pastry Shop')
+  section#reviews
+    .container
+      .grid
+        .row.inner-container
+          .col-sm-6.tile
+            .center-block
+              .bubble.center-block
+                p.review-text
+                  | "When I need a cake for a birthday or in need of a cappucino, Egidio is my
+                  | place. They always welcome me with the kind faces and serve me the freshest
+                  | and most delicious pastries. It really is a piece of Italy in the Bronx."
+                .person-info
+                  h2 Maria Di Bello
+                  h1 customer
+            .person-photo.center-block
+              img.img-circle.center-block.review-pic(src='/images/maria.jpg', alt='Customer, Maria Di Bello', width='140', height='140')
+          .col-sm-6.tile
+            .center-block
+              .bubble.center-block
+                p.review-text
+                  | "I enjoy giving the best and freshest pastries to my customers. We make all
+                  | our pastries from scratch, with authentic Italian recipes. Come give us a try,
+                  | believe me you won't regret it!"
+                .person-info
+                  h2 Maria Carmela Lucciola
+                  h1 owner
+            .person-photo.center-block
+              img.img-circle.center-block.review-pic(src='/images/carmela.jpg', alt='Owner, Maria Carmela Lucciola', width='140', height='140')
+  footer
+    .container
+      .row
+        #address.col-sm-4
+          p
+            | 622 East 187
+            sup th 
+            | Street
+          p Bronx, NY 10458
+          p (718) 295-6077
+        #links.col-sm-4
+          a.social(href='//facebook.com/pages/Egidio-Pastry-Shop/129743402724', target='_blank')
+            i.fa.fa-3x.fa-fw.fa-facebook-square
+          a.social(href='//goo.gl/yZpYVR', target='_blank')
+            i.fa.fa-3x.fa-fw.fa-google-plus
+          a.social(href='//yelp.com/biz/egidio-pastry-shop-bronx', target='_blank')
+            i.fa.fa-3x.fa-fw.fa-yelp
+        #copyright.col-sm-4
+          - var date = new Date();
+          - var year = date.getFullYear();
+          p &copy; #{year} Egidio Pastry Shop
+          p All rights reserved.
+  a.go-top.img-circle(href='#')
+    i.fa.fa-3x.fa-fw.fa-angle-up
+  //- script(src='bower_components/jquery/dist/jquery.js')
+  //- script(src='bower_components/jquery.scrollTo/jquery.scrollTo.js')
+  //- script(src='bower_components/FitText.js/jquery.fittext.js')
+  //- script(src='bower_components/FlexSlider/jquery.flexslider-min.js')
+  //- script(src='bower_components/blueimp-gallery/js/jquery.blueimp-gallery.min.js')
+  script(src='scripts/build/vendor.js')
+  <script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create','UA-44622585-2');ga('send','pageview');</script>
+  script(src='scripts/build/main.js')
+

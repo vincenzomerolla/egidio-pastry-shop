@@ -1,0 +1,623 @@
+/* Global */
+
+
+body {
+	border-top: lighten($primary-color, 10%) solid 5px;
+	padding-top: 5px;
+	overflow-x: hidden;
+}
+
+img {
+	max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+	color: $primary-color;
+}
+
+h1 {
+	font-family: "DIN-Condensed", $font-family-sans-serif;
+	font-size: 3em;
+	letter-spacing: 1px;
+}
+
+h2 {
+	font-family: "Bauer-Bodoni", $font-family-serif;
+	font-size: 1.2em;
+	font-weight: normal;
+    font-style: normal;
+}
+
+h3 {
+	font-family: DIN, sans-serif;
+	font-size: 1.4em;
+	letter-spacing: 0.5px;
+}
+
+a {
+	&:hover, 
+	&:active {
+		text-decoration: none;
+	}
+}
+
+
+
+/* General CSS for Slides */
+
+.section-text {
+	// border-top: 1px solid $primary-color;
+	padding: 0 10px;
+
+	@media screen and (min-width: 768px) {
+		padding: 0 50px;
+	}
+
+	@media screen and (min-width: 992px) {
+		padding: 0 120px;
+	}
+
+	@media screen and (min-width: 1200px) {
+		padding: 0 180px;
+	}
+}
+
+
+
+.absolute-center {
+	width: 50%;
+	height: 50%;
+	overflow: auto;
+	margin: auto;
+	position: absolute;
+	top: 0; left: 0; bottom: 0; right: 0;
+
+
+	&.is-responsive {
+		width: 60%; 
+		height: 100%;
+	  	min-width: 300px;
+	  	max-width: 400px;
+	  	padding: 25% 0;
+	}
+}
+
+
+/* Pictures */
+
+.picture {
+	background-color: $primary-color;
+	background-repeat: no-repeat;
+    background-size: 100%;
+	display: block;
+    height: 0;
+    padding-bottom: 62.571428571429%;   
+    //background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    //text-indent: -9999px; 
+    overflow-x: hidden; 
+   
+	&#first {
+		& .is-responsive {
+			max-width: 800px;
+		}
+
+		@include responsive-bg-images(slides, slide1);
+	}
+
+	&#second {
+		& .is-responsive {
+			max-width: 700px;
+		}
+
+		@include responsive-bg-images(slides, slide2);
+	}
+
+	&#third {
+		& .is-responsive {
+			max-width: 1000px;
+		}
+
+		@include responsive-bg-images(slides, slide3);
+	}
+
+}
+
+.picture, .slider {
+
+	h1, h2 {
+		color: #fff;
+		margin:0;
+		padding:0;
+		text-align: center;
+		//font-size: 2.5vw;
+	}
+
+	h1 {
+		font-family: "Bauer-Bodoni", $font-family-serif;
+		font-weight: normal;
+    	font-style: italic;
+	}
+
+	h2 {
+		font-family: "DIN-Condensed", $font-family-sans-serif;
+	}
+}
+
+.flexslider {
+ 	margin-top:5%;
+}
+
+.flex-direction-nav a:before {
+	@media screen and (max-width: 40em) {
+		font-size:20px;
+	}
+	
+}
+
+
+
+/* History */
+
+#history {
+	padding: 10% 0;
+
+	h1 {
+		margin-bottom: 0em;
+	}
+	h2 {
+		margin-top: 0em;
+	}
+}
+
+
+
+/* Menu */
+
+#menu {
+	margin: 10% 0;
+
+	h3 {
+		text-align: center;
+		margin-top: 5%;
+		font-size: 90%;
+
+		@media screen and (min-width: 768px) {
+			font-size: 100%;
+		}
+
+		@media screen and (min-width: 992px) {
+			font-size: 120%;
+		}
+	}
+
+	.menu-title {
+		h1 {
+			margin-top: 0.2em;
+		}
+
+		h2 {
+			margin-bottom: 0em;
+		}
+	}
+
+}
+
+
+.menu-item {
+	height: 325px;
+	margin-top: 3%;
+	text-align: center;
+
+
+	&#item1,
+	&#item3 {
+		@media screen and (min-width: 768px) {
+			@include add-border($primary-color, right);
+		}
+			
+	}
+
+	&#item2 {
+		@media screen and (min-width: 992px) {
+			@include add-border($primary-color, right);
+		}	
+	}
+
+	& h1, 
+	& h2 {
+		margin:0;
+	}
+
+	h1 {
+		padding-bottom: 30px;
+	}
+
+	h2 {
+		padding-top: 30px;
+	}
+
+	.menu-text {
+		width: 200px;
+		margin: 20px auto 0;
+	}
+
+}
+
+
+.menu-image {
+	.no-touch & {
+		&:hover {		
+			cursor: pointer;	
+		}
+
+		&:hover, 
+		&:focus {
+			
+			& + div {
+				h1, h2 {
+					color: #fff;
+					background-color: lighten($primary-color, 7%);
+				}
+			}
+		}
+	}
+
+	.touch & {
+		&:active {		
+
+			& + div {
+				h1, h2 {
+					color: #fff;
+					background-color: lighten($primary-color, 7%);
+				}
+			}
+		}
+	}
+
+	.open-gallery {
+		//background-color: $primary-color;
+		background-repeat: no-repeat;
+    	background-size: contain;
+    	display: block;
+    	height: 181px;
+	    padding-bottom: 25%;   
+	    //background-attachment: fixed;
+	    background-position: center;
+	    position: relative;
+
+	    &[data-gallery="#biscotti"]{
+	    	background-image: url('/images/biscotto.png')
+	    }
+
+	    &[data-gallery="#pastries"]{
+	    	background-image: url('/images/cannolo.png')
+	    }
+	    &[data-gallery="#cookies"]{
+	    	background-image: url('/images/cookie.png')
+	    }
+
+	    &[data-gallery="#cakes"]{
+	    	background-image: url('/images/cake.png')
+	    }
+	}
+
+
+
+}
+
+.button {
+	display: block;
+	color: #fff;
+	background-color: lighten($primary-color, 7%);
+	font-family: DIN;
+	padding: 12px 12px 7px;
+	text-align: center;
+	cursor: pointer;
+	letter-spacing: 1px;
+	font-size: 0.8em;
+	margin-top: 35px;
+	z-index: 1000;
+	//border-bottom: 3px darken($primary-color, 30%) solid;
+
+	&:hover, &:focus {
+		color: #fff;
+		background-color: $primary-color;
+		border-bottom: 3px darken($primary-color, 30%) solid;
+	}
+
+	@media screen and (min-width: 768px) {
+		font-size: 1em;
+		padding: 10px 20px 7px;
+	}
+
+	@media screen and (min-width: 992px) {
+		font-size: 1.2em;
+		padding: 10px 30px 5px;
+	}
+
+	&:active {
+		position: relative;
+		top:1px;
+	}
+}
+
+.grid {
+	border-top: 1px solid $primary-color;
+}
+
+
+
+
+
+
+
+/* Services */
+
+#services {
+	padding: 10% 0;
+
+	h1 {
+		margin-bottom: 4%;
+	}
+	h2 {
+		margin-bottom: 0em;
+		font-size: 1.4em;
+	}
+}
+
+/* Contact */
+
+
+#contact {
+	padding: 15% 0;
+
+	@media screen and (min-width: 768px) {
+		padding: 10% 0;
+	}
+
+
+	.contact-info {
+		@media screen and  (min-width: 768px) {
+			width:640px;
+			margin: 0 auto;
+		}
+	}
+
+	p {
+		font-family: "Bauer-Bodoni", $font-family-serif;
+		font-weight: bold;
+		font-size: 1.5rem;
+		margin-bottom: 0;
+		color: lighten(#000, 35%);
+
+		
+	}
+
+	#location, #hours {
+		
+		h1, p {
+			text-align: center;
+		}
+
+		@media screen and  (min-width: 768px) {
+			padding: 10px 15px!important;
+		}
+		
+	}
+
+	#location {
+		@media screen and  (min-width: 768px) {
+			h1, p {
+				text-align: left;
+			}
+
+			@include add-border($primary-color, right);
+		}		
+	}
+
+	#hours {
+		padding: 30px 15px;
+		@media screen and  (min-width: 768px) {
+		
+
+			h1, p {
+				text-align: right;
+			}
+		}	
+	}
+
+	.google_map {
+		cursor: pointer;
+		z-index: 100;
+		display: block;
+		background-image: url("http://maps.googleapis.com/maps/api/staticmap?center=40.8550686,-73.8868178&zoom=16&size=640x640&maptype=roadmap&markers=size:mid%7Ccolor:red%7C40.8550686,-73.8868178&sensor=false");
+		background-repeat: no-repeat;
+		background-position: 50% 50%;
+		
+		line-height: 0;
+		margin-top: 5%;		
+		//text-align: center;
+
+		img {
+			opacity: 0;
+		}
+
+		@media screen and (-webkit-min-device-pixel-ratio:1.3),screen and (min--moz-device-pixel-ratio:1.3),screen and (-o-min-device-pixel-ratio:2 / 1),screen and (min-device-pixel-ratio:1.3),screen and (min-resolution:2dppx) {
+			background-image: url("http://maps.googleapis.com/maps/api/staticmap?center=40.8550686,-73.8868178&zoom=16&size=640x640&scale=2&maptype=roadmap&markers=size:mid%7Ccolor:red%7C40.8550686,-73.8868178&sensor=false");	
+			background-size: 640px 640px;			
+		}
+
+	}
+}
+
+
+
+/* Reviews */
+
+#reviews {
+	height: auto;
+
+
+	.inner-container {
+		padding: 50px 5px;
+	}
+
+	.tile {
+		padding: 20px 0px;
+		height: auto;
+	}
+
+
+	& .center-block {
+		
+		max-width: 400px;
+
+		@media screen and (min-width: 480px) {
+			max-width: 435px;
+		}
+
+		@media screen and (min-width: 768px) {
+			max-width: none;
+		}
+	}
+
+	.bubble {
+		background-color: #fff;
+		box-shadow: 0 0 6px #b2b2b2;
+		//display: inline-block;
+		padding: 20px 30px;
+		position: relative;
+		vertical-align: top;
+		margin: 5px 15px;
+		min-width: 150px;
+
+		&::before {
+			background-color: #fff;
+			content: "\00a0";
+			display: inline-block;
+			height: 50px;
+			width: 50px;
+			position: absolute;
+			left: 42%;
+			bottom: -24px;
+			transform: rotate(-45deg);
+			-webkit-transform: rotate(-45deg);	
+			box-shadow: -2px 2px 2px 0 rgba( 178, 178, 178, .4 );
+
+			@media screen and (min-width: 480px) {
+				max-width: 435px;
+			}
+
+
+		}
+
+
+		@media screen and (min-width: 768px) {
+			margin: 5px 30px;
+		}
+
+		@media screen and (min-width: 992px) {
+			margin: 5px 70px;
+		}
+
+		@media screen and (min-width: 1200px) {
+			margin: 5px 100px;
+		}
+
+	}
+
+
+	.person-info {
+		border-top: 1px solid #b2b2b2;
+		padding: 15px 0px;
+		margin-top: 60px;
+
+		h2 {
+			font-size: 1.5em;
+			padding: 0;
+			margin: 0;
+		}
+
+		h1 {
+			font-size: 1.4em;
+			letter-spacing: 1px;
+			margin: 0;
+			padding: 0;
+		}
+
+	}
+
+	.person-photo {
+		padding-top: 50px;
+	}
+
+	.review-pic {
+		box-shadow: 0 8px 6px -6px #a8a8a8;
+	}
+	
+}
+
+
+
+/* Footer */
+footer {
+	background-color: lighten($primary-color, 10%);
+	color: #fff;
+	text-align: center;
+
+	.col-sm-4 {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+
+	p {
+		margin: 0;
+	}
+
+	#links {
+		padding: 0;
+	}
+
+	.social {
+		padding: 0px 10px;
+		color: #fff;
+
+		&:hover {
+			opacity: 0.8;
+			cursor: pointer;
+		}
+	}
+
+	.ss-icon {
+		font-size: 2.5em;
+	}
+}
+
+
+.go-top {
+	position: fixed;
+	bottom: 2em;
+	right: 2em;
+	color: #fff;
+	background-color: rgba(0, 0, 0, 0.3);
+	font-size: 1.1em;
+	padding-top: 7px;
+	display: none;
+	width: 65px;
+	height: 65px;
+	text-align: center;
+	text-decoration: none;
+	z-index:100;
+
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.6);		
+	}
+
+	&:hover, &:visited, &:focus {
+		color: #fff;
+	}
+}

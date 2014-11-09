@@ -1,0 +1,17 @@
+{
+  "name": "egidio",
+  "private": true,
+  "dependencies": {
+    "bootstrap-sass-official": "~3.3.0",
+    "modernizr": "~2.8.3",
+    "jquery": "~1.11.0",
+    "font-awesome": "~4.2.0",
+    "jquery.scrollTo": "~1.4.11",
+    "FitText.js": "*",
+    "FlexSlider": "*",
+    "responsive-nav": "~1.0.32",
+    "blueimp-gallery": "~2.14.0",
+    "respond": "~1.4.2"
+  },
+  "devDependencies": {}
+}
